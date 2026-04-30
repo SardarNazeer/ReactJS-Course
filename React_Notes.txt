@@ -1,3 +1,5 @@
+Day 1
+
 1) What is react?
 
 it is a js library used to make UI on small components, created by meta.
@@ -41,3 +43,55 @@ eslint.config.js > file humein cutom rules banane me help karta hai,
 
 .gitignore > jo hamare kam ki files na hu jise hum github pe na push karna chahe.
 
+Day 2
+
+components > small piece of code jo specific kam karta hu
+Components based architecture> multiple function banate hai or alag alag tareqa se use krty hai
+
+{var} > jsx me variable ko print karne ke liye curlybraces ka use huta hai
+
+
+Day 3
+
+Props > data pass karte with help of props, parent ke through child ko data bhejte hai
+ap parent se child ki tarf data bhej sake hai
+lekin child se parent ki tarf data nahi bhej sakte
+props full name > properties
+components function he huty hai or function me hum data pass kar sakte hai
+react me data pass karne ka tareeqa hai props
+
+parent me jake data banayenge jese app.jsx me jake jaha pe apna card component render kia hai
+uske ander in the form of attribute likhenge apna data eg user = "Sardar"
+or child ke pas jake yani card component me jake data recieve kar lenge (props)
+name kuch bhi likh sakte hai props ki jagha jo dil chahe.
+
+koi array ya number pass karna ho curly braces me krte hai eg age = {18}
+or string to single qoutes ya double qoutes me kar sakte hai.
+
+In React, props (short for properties) are used to pass data from one component to another
+ — usually from parent → child.
+
+Think of props like function arguments, but for components.
+
+eg
+
+parent component
+
+function App() {
+  return (
+    <div>
+      <User name="Ali" age={22} />
+    </div>
+  );
+}
+
+child component
+
+function User(props) {
+  return (
+    <div>
+      <h1>Name: {props.name}</h1>
+      <p>Age: {props.age}</p>
+    </div>
+  );
+}
