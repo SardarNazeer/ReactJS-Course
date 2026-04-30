@@ -1,0 +1,43 @@
+1) What is react?
+
+it is a js library used to make UI on small components, created by meta.
+react js website ko reload hone se rokta hai, component based architecture bana ke,
+jab ap simple ek button pe click karoge srf wahi part reload huke render huga.
+
+JS Essentials for react.
+Basics,functions,arrays,objects,es6+ features,Asynchronus javaScript
+
+Library vs Framework
+
+library > used huti hai kisi ek particular feature ko implement karne ke lie
+Framework > isme sub kuch bana hua in built milta hai
+
+import & export
+
+import & export > data ko ek file se dosri file me bhejne ke lie use huta hai
+2 types of export: named and default
+named export > kisi ko naam de diya or usko jake export kar diya
+default export > har file ko default kuch ek specific chezz export kar rahi hai agey
+
+
+RealDOM VS VirtualDOM
+
+RealDOM > apke html ka structure huta hai pura tree type, jab ap realDOM js ke through
+kuch changes karna chate hai example h1 ka text change karna chate hai toh apka pura dom 
+rerender huta hai.
+
+VirtualDOM > ye realDOM ki ek copy bana leta hai, agar apko kuch change karna ho, jese ky
+button ke click pe h1 ka text to ye kya karta hai realdom me sirf wahi changes karta hai,
+aur sirf wahi element rerender huta hai, jisse hamara pura page reload nahi huta,
+or hamari app fast work karti hai.
+
+
+JSX > javaScript XML, ye html + javaScript, yani ap js ke ander html likh skte hai
+
+<></> - it is called fragments darasal ye empty tags huty hai,
+ye chezo ko contain karne ka kaam karta hai.
+
+eslint.config.js > file humein cutom rules banane me help karta hai,
+
+.gitignore > jo hamare kam ki files na hu jise hum github pe na push karna chahe.
+
