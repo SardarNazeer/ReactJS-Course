@@ -95,3 +95,5 @@ function User(props) {
     </div>
   );
 }
+
+react har component ko identify kr paye uske lie hum key pass krty hai
