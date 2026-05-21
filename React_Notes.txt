@@ -97,3 +97,13 @@ function User(props) {
 }
 
 react har component ko identify kr paye uske lie hum key pass krty hai
+
+
+Tailwind CSS > Utility first library
+
+
+feature based vs atomic based structure
+
+har chezz ko alag componenet banana like navbar,card xyz feature based
+chote chote task ko alag component banana like button,header etc atomic based
+
