@@ -107,3 +107,135 @@ feature based vs atomic based structure
 har chezz ko alag componenet banana like navbar,card xyz feature based
 chote chote task ko alag component banana like button,header etc atomic based
 
+Hooks in react ?
+
+special type of function huty hai yeh
+
+useState > ek states se dosre state me change huna, component ka dynamic data change krna 
+Used to store and update component state.
+eg: 
+import React, { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h2>{count}</h2>
+
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  );
+}
+
+useReducer > complex logic ko manage karta hai.
+
+Alternative to useState for complex state logic.
+
+eg: const reducer = (state, action) => {
+  switch(action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    default:
+      return state;
+  }
+};
+
+const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+
+useRef > kisi bhi DOM element ko select karne ka kam karta hai
+
+Used to:
+
+access DOM elements
+persist values without re-rendering
+
+eg: import React, { useRef } from "react";
+
+function InputFocus() {
+  const inputRef = useRef();
+
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
+
+  return (
+    <>
+      <input ref={inputRef} />
+      <button onClick={focusInput}>Focus</button>
+    </>
+  );
+}
+
+useEFFECT > agar me api se data leta ho to mera component run huga aur useeffect side pe run huga
+
+Used for side effects like:
+
+API calls
+timers
+event listeners
+DOM updates
+
+eg: import React, { useEffect } from "react";
+
+function Example() {
+  useEffect(() => {
+    console.log("Component Mounted");
+  }, []);
+
+  return <h1>Hello</h1>;
+}
+
+Dependency Array 
+
+useEffect(() => {
+  // runs on every render
+});
+
+useEffect(() => {
+  // runs once
+}, []);
+
+useEffect(() => {
+  // runs when count changes
+}, [count]);
+
+
+useContext > global context ko manage karta hai, props drilling se bachata hai.
+
+Used to access data from React Context without prop drilling.
+eg: const ThemeContext = React.createContext();
+
+function Child() {
+  const theme = useContext(ThemeContext);
+
+  return <h1>{theme}</h1>;
+}
+
+useMemo > 
+
+Optimizes performance by memoizing expensive calculations.
+
+eg: const expensiveValue = useMemo(() => {
+  return calculateValue(count);
+}, [count]);
+
+useCallback > 
+
+Memoizes functions to avoid unnecessary re-creation.
+
+eg: const handleClick = useCallback(() => {
+  console.log("Clicked");
+}, []);
+
+
+basic logic/state manage krne ke liye > useState
+global context/state manage karne ke liye > useContext
+complex logic/state manage karne ke liye > useReducer
+useMemo & useCallback > ye optimization me help karte hai yani bar bar rerender to 
+nahi hu raha, sara data sahi manage hu raha hai.
+useRef > mutable values hold karne ke liye jo re-render trigger na kare
+ya dom access karne ke liye
