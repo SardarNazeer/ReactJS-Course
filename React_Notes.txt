@@ -239,3 +239,17 @@ useMemo & useCallback > ye optimization me help karte hai yani bar bar rerender 
 nahi hu raha, sara data sahi manage hu raha hai.
 useRef > mutable values hold karne ke liye jo re-render trigger na kare
 ya dom access karne ke liye
+
+
+Two way binding
+
+In React, two-way binding means:
+
+The UI input updates the component state
+The component state also updates the UI
+
+React does this using:
+
+useState() for state
+value prop to display state
+onChange event to update state
