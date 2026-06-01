@@ -1,0 +1,25 @@
+  // Routing means ek page se dosre page jana 
+
+  // React me routing in built nahi huty 
+
+  // ek library ka use krty hai react router dom 
+  // react router dom humein multiple routers deta hai 
+
+1) BrowserRouter > broser me routing kr skte hai, or sub kuch client based routing huti
+mostly yahe use huga
+
+instagram.com = /  
+instagram.com/feed = /feed
+instagram.com/messages = /messages
+
+2) HashRouter > server ko pata nahi chalta ke ap kis route per hai jab apko hide rakhna ho
+bht kam use huta hai
+
+instagram.com = /#/ 
+instagram.com/feed = /#/feed
+instagram.com/messages = /#/messages
+
+3) MemoryRouter > memory me chezein store karta hai
+ReactNative ki apps me use huta hai
+
+4) StaticRouter > static side generation me, ye nextjs me use huta hai
