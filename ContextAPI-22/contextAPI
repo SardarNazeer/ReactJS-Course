@@ -1,0 +1,193 @@
+React me Context API ek built-in feature hai jo data ko parent component se deeply
+nested child components tak props pass kiye bina share karne ke liye use hota hai.
+
+ContextAPI se ap data ko centralized kar dete hai,
+Ek jagah data rakho aur jahan zaroorat ho wahan use kar lo.
+
+Sab components usi ek source se data le rahe hain.
+
+           UserContext
+                |
+      --------------------
+      |        |        |
+   Navbar   Profile  Dashboard
+
+Yehi centralized state management kehlata hai.
+
+Interview Answer
+
+"Context API data ko centralized is tarah karti hai ke hum shared state ko Provider
+me ek jagah store kar dete hain aur useContext hook ke through application
+ke kisi bhi child component me access kar sakte hain, 
+jis se props drilling avoid hoti hai aur state management easy ho jata hai."
+
+Problem (Props Drilling)
+
+Agar data App se Child3 tak bhejna ho:
+
+<App>
+  <Child1>
+    <Child2>
+      <Child3 />
+    </Child2>
+  </Child1>
+</App>
+
+<App user="Farhan" />
+
+Phir Child1, Child2, aur Child3 sab me props pass karne padenge. Isko props drilling kehte hain.
+
+Solution: Context API
+
+Context API se data directly kisi bhi component me access kar sakte hain
+
+Step1: Context create karo
+
+// UserContext.js
+
+import { createContext } from "react";
+
+const UserContext = createContext();
+
+export default UserContext;
+
+Step2: Provider lagao
+
+// App.jsx
+
+import UserContext from "./UserContext";
+import Home from "./Home";
+
+function App() {
+  const user = "Farhan Ahmed";
+
+  return (
+    <UserContext.Provider value={user}>
+      <Home />
+    </UserContext.Provider>
+  );
+}
+
+export default App;
+
+value me jo data doge wo sab child components access kar sakte hain.
+
+Step3: Data use karo
+
+// Profile.jsx
+
+import { useContext } from "react";
+import UserContext from "./UserContext";
+
+function Profile() {
+  const user = useContext(UserContext);
+
+  return (
+    <h1>Welcome {user}</h1>
+  );
+}
+
+export default Profile;
+
+Interview Definition
+
+Context API React ka built-in state management system hai jo components ke darmiyan data share karne ke liye use hota hai aur props drilling ko avoid karta hai.
+
+Yaad rakhne ka simple formula:
+
+React Context API ke important interview questions aur short answers:
+
+1. Context API kya hai?
+
+React ka built-in feature jo data ko multiple components me share karne ke liye use hota hai bina props drilling ke.
+
+2. Props Drilling kya hoti hai?
+
+Jab parent component ka data intermediate components ke through pass karna pade sirf child tak pahunchane ke liye.
+
+App → Child1 → Child2 → Child3
+3. Context API ke main parts kya hain?
+createContext()
+Provider
+useContext()
+4. createContext() ka kya kaam hai?
+
+Context object create karta hai.
+
+const UserContext = createContext();
+5. Provider kya hota hai?
+
+Data provide karta hai jitne bhi child components us context ko use karna chahte hain.
+
+<UserContext.Provider value={user}>
+  <App />
+</UserContext.Provider>
+6. useContext() kya karta hai?
+
+Context ke data ko consume (receive) karta hai.
+
+const user = useContext(UserContext);
+7. Context API aur Props me kya difference hai?
+Props	Context API
+Parent → Child data	Global-like data sharing
+Props drilling hoti hai	Props drilling avoid hoti hai
+Simple cases ke liye	Shared data ke liye
+8. Kya Context API Redux ko replace kar sakta hai?
+
+Small aur medium projects me haan.
+
+Large applications me Redux, Zustand ya Redux Toolkit zyada suitable hote hain.
+
+9. Kya multiple contexts bana sakte hain?
+
+Ji haan.
+
+const UserContext = createContext();
+const ThemeContext = createContext();
+10. Context API ki limitations kya hain?
+Frequent updates par unnecessary re-renders ho sakte hain.
+Complex state management ke liye ideal nahi.
+Redux Toolkit ya Zustand zyada scalable hote hain.
+11. useContext hook kis React version me introduce hua?
+
+React 16.8 me Hooks ke sath.
+
+12. Default value createContext me kaise dete hain?
+const UserContext = createContext("Guest");
+
+Agar Provider na mile to "Guest" return hoga.
+
+13. Context API kab use nahi karni chahiye?
+
+Jab data sirf parent aur direct child ke beech share ho raha ho.
+
+<Parent>
+  <Child />
+</Parent>
+
+Is case me props hi best hain.
+
+14. Context API me object pass kar sakte hain?
+
+Bilkul.
+
+<UserContext.Provider
+  value={{
+    name: "Farhan",
+    age: 22
+  }}
+>
+15. Context API ka sabse common use case kya hai?
+Authentication
+Theme (Dark/Light Mode)
+Language Switching
+User Data
+Cart Data
+Practice Interview Coding Question
+
+Question: Theme Context banao jisme:
+
+Default theme = "light"
+Ek button ho
+Click karne par "light" se "dark" aur "dark" se "light" ho jaye
+Context API use karo
