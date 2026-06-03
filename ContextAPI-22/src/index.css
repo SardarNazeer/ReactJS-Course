@@ -9,13 +9,31 @@ body{
     height: 100%;
 }
 
-.nav{
+.light{
     display: flex;
     background-color: seagreen;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     color: #fff;
+}
+
+.dark{
+    background-color: darkolivegreen;
+        display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+button{
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: green;
+    color: #fff;
+    border: none;
 }
 
 .nav2{
